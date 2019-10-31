@@ -1,11 +1,10 @@
 document.querySelector("#github-form").addEventListener("submit", e => {
   e.preventDefault()
   const query = document.querySelector("#search").value
-  searchForUser(query)
-    .then(users => {
-      const ul = prepareUserList()
-      users.forEach(user => injectUser(ul, user))
-    })
+  searchForUser(query).then(users => {
+    const ul = prepareUserList()
+    users.forEach(user => injectUser(ul, user))
+  })
 })
 
 function prepareUserList() {
@@ -35,11 +34,10 @@ function injectUser(ul, user) {
   const userLi = document.createElement("li")
   userLi.textContent = user.login
   userLi.addEventListener("click", e => {
-    lookupUserRepos(e, user.repos_url)
-      .then(repos => {
-        const ul = prepareRepoList(user)
-        repos.forEach(repo => injectRepo(ul, repo))
-      })
+    lookupUserRepos(e, user.repos_url).then(repos => {
+      const ul = prepareRepoList(user)
+      repos.forEach(repo => injectRepo(ul, repo))
+    })
   })
   ul.append(userLi)
 }
@@ -61,8 +59,7 @@ function lookupUserRepos(e, URI) {
       "User-Agent": "idmyn"
     }
   }
-  return fetch(URI, configObj)
-    .then(response => response.json())
+  return fetch(URI, configObj).then(response => response.json())
 }
 
 function removeChildren(parent) {
