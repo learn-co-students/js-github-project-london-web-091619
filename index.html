@@ -3,7 +3,7 @@
   <meta charset='UTF-8'/>
   <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
   <meta http-equiv='X-UA-Compatible' content='ie=edge'/>
-  <title>Document</title>
+  <title>GitHub Search</title>
   <script src='js/index.js' defer></script>
   <link rel='stylesheet' href='index.css'/>
 </head>
@@ -13,12 +13,23 @@
     <h2>GitHub Search</h2>
 
     <form id='github-form'>
+      <fieldset>
+        <legend>Search for:</legend>
+        <label for="users">users</label>
+        <input id="user-radio" name="search-type" type="radio" value="users" checked="checked" />
+        <input id="repo-radio" name="search-type" type="radio" value="repos"/>
+        <label for="repos">repos</label>
+      </fieldset>
       <input id='search' type='text' name='search'>
       <input type='submit' name='submit'/>
     </form>
 
     <div id='github-container'>
       <ul id='user-list'>
+
+      </ul>
+
+      <ul id='user-repos-list'>
 
       </ul>
 
